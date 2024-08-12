@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.block {
+    @apply container md:max-w-6xl lg:max-w-7xl mx-auto
+}
