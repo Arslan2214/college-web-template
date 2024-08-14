@@ -18,7 +18,7 @@ const config: Config = {
       },
       fontFamily: {
         "mainText": ["Poppins", "Open Sans", "sans-serif"], // Main font for the body
-        "headText": ["Aldrich", "sans-serif"], // Heading font
+        "head": ["Aldrich", "sans-serif"], // Heading font
       },
     },
   },

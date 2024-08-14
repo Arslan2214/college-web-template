@@ -4,9 +4,11 @@ type Props = {
   head: string;
   sub_head: string;
   align?: "start" | "center";
+  make?: "dark" | "white";
 };
 
 const Section_Head = (props: Props) => {
+  const bg = props.make == "dark" ? "text-slate-100" : "text-black";
   return (
     <>
       <div
@@ -17,7 +19,9 @@ const Section_Head = (props: Props) => {
         <span className="uppercase text-lg font-semibold text-yellow">
           {props.head}
         </span>
-        <h3 className="uppercase text-4xl sm:text-5xl lg:text-6xl text-black font-headText">{props.sub_head}</h3>
+        <h3 className={`uppercase text-3xl sm:text-5xl ${bg} font-head`}>
+          {props.sub_head}
+        </h3>
       </div>
     </>
   );
