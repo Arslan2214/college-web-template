@@ -1,15 +1,19 @@
 import Section_Head from "../(components)/Section_Head";
 import Mian_Button from "../(components)/Button";
 import Team_Card from "../(components)/Team_Card";
+import Post_Section_Head from "../(components)/Post_Section_Head";
 
 const Our_Team = () => {
   return (
     <section className="cont-block">
       {/* Section Head */}
-      <div className="flex justify-between items-center">
-        <Section_Head sub_head="Meet our team" head="Our Team" />
-        <Mian_Button link="/sbout" text="Learn More" />
-      </div>
+      <Post_Section_Head
+        sub_head="Meet our team"
+        head="Our Team"
+        btn_Link="/about"
+        btn_Text="Learn More"
+      />
+
       {/* Cards */}
       <div className="flex flex-col sm:flex-row sm:flex-wrap lg:flex-nowrap items-center justify-center gap-5 py-6 md:py-10">
         <Team_Card

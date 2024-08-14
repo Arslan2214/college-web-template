@@ -4,6 +4,7 @@ import Our_Specialization from "./(section)/Our_Specialization";
 import BrandList from "./(section)/BrandList";
 import Our_Team from "./(section)/Our_Team";
 import Main_Banner from "./(components)/Main_Banner";
+import Blog from "./(section)/Blog";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
           sub_head="Our Ability To Deliver Outstanding Results For Our Clients Starts With Our Team Of Smart."
           btn_text="contact us"
         />
+        <Blog />
       </main>
     </>
   );
