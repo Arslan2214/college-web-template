@@ -29,7 +29,7 @@ const BrandShowcase: React.FC = () => {
         } else {
           container.scrollLeft += 1; // Scroll horizontally
         }
-      }, 1500); // Adjust speed if needed
+      }, 15); // Adjust speed if needed
     };
 
     startAutoScroll();

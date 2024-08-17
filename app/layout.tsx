@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import { Aldrich, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./(components)/Navbar";
+import Footer from "./(section)/Footer";
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '700'], // Customize weights as needed
+  subsets: ["latin"],
+  weight: ["400", "700"], // Customize weights as needed
 });
 
 const aldrich = Aldrich({
-  subsets: ['latin'], // Adjust as needed
-  weight: '400', // Specify the weight if needed
+  subsets: ["latin"], // Adjust as needed
+  weight: "400", // Specify the weight if needed
 });
 
 export const metadata: Metadata = {
@@ -28,7 +29,8 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Navbar />
         {children}
-        </body>
+        <Footer />
+      </body>
     </html>
   );
 }

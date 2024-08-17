@@ -1,3 +1,4 @@
+import React from "react";
 import Herosection from "./(section)/Herosection";
 import Who_We_Are from "./(section)/Who_We_Are";
 import Our_Specialization from "./(section)/Our_Specialization";
