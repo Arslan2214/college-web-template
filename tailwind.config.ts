@@ -17,11 +17,12 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        "mainText": ["Poppins", "Open Sans", "sans-serif"], // Main font for the body
-        "head": ["Aldrich", "sans-serif"], // Heading font
+        mainText: ["Poppins", "Open Sans", "sans-serif"], // Main font for the body
+        head: ["Aldrich", "sans-serif"], // Heading font
       },
     },
   },
   plugins: [],
 };
+
 export default config;

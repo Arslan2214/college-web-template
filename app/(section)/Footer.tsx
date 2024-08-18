@@ -21,7 +21,7 @@ const Footer = () => {
             <input
               type="text"
               className="flex-grow px-4 py-2 text-gray-700 placeholder-gray-400 font-mainText focus:outline-none rounded-full"
-              placeholder="Subscribe Now"
+              placeholder="Join Newsletter"
             />
             <button className="px-6 py-3 bg-yellow rounded-full text-white font-semibold hover:bg-yellow transition-colors duration-300 flex-shrink-0">
               <FaPaperPlane />
@@ -90,7 +90,13 @@ const Footer = () => {
         <div className="text-center mt-10">
           <p className="text-gray-500 text-sm">
             © 2024 By{" "}
-            <Link className="text-gray-200 underline underline-offset-2 text-sm" href="https://github.com/Arslan2214">ARslan Ahmad</Link>.
+            <Link
+              className="text-gray-200 underline underline-offset-2 text-sm"
+              href="https://github.com/Arslan2214"
+            >
+              ARslan Ahmad
+            </Link>
+            .
           </p>
         </div>
       </div>

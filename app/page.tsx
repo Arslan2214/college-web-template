@@ -14,7 +14,7 @@ const Blog = dynamic(() => import("./(section)/Blog"));
 export default function Home() {
   return (
     <>
-      <main>
+      <>
         <Herosection />
         <Who_We_Are />
         <Our_Specialization />
@@ -27,7 +27,7 @@ export default function Home() {
           btn_text="contact us"
         />
         <Blog />
-      </main>
+      </>
     </>
   );
 }

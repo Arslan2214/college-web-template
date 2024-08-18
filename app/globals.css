@@ -1,8 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Aldrich&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Aldrich';
+  src: url('/fonts/Aldrich-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Aldrich', sans-serif;
+}
+
 
 @layer utilities {
   /* Hide scrollbar for Chrome, Safari and Opera */
