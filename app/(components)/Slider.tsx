@@ -1,13 +1,14 @@
 "use client";
 import Button from "../(components)/Button";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Swiper as SwiperCore } from "swiper/types";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { motion } from "framer-motion";
 
 // Define the type for the navigation direction
 type Manner = "prev" | "next";
@@ -28,7 +29,7 @@ const NavigationButton = ({
       }`}
     >
       {direction === "prev" ? (
-          <MdKeyboardArrowLeft />
+        <MdKeyboardArrowLeft />
       ) : (
         <MdKeyboardArrowRight />
       )}
@@ -36,69 +37,80 @@ const NavigationButton = ({
   );
 };
 
+const slideTextVariants = {
+  initial: { opacity: 0, y: 50 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.85 } },
+};
+
+const buttonVariants = {
+  initial: { scale: 0.8 },
+  animate: { scale: 1, transition: { duration: 0.65 } },
+};
+
 const IndexPage = () => {
   // Create a ref to access the Swiper instance
   const swiperRef = useRef<SwiperCore | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const slides = [
     {
-      text: "Quality is not only our standard.",
+      text: "Crafting Comfort for Every Home.",
       image: "/img/carousel/Carousel1.jpg",
     },
     {
-      text: "Explore Slide 2",
+      text: "Elegance Meets Functionality.",
       image: "/img/carousel/Carousel2.jpg",
     },
     {
-      text: "Explore Slide 2",
-      image: "/img/carousel/Carousel2.jpg",
-    },
-    {
-      text: "Explore Slide 2",
-      image: "/img/carousel/Carousel2.jpg",
-    },
-    {
-      text: "Explore Slide 2",
-      image: "/img/carousel/Carousel2.jpg",
-    },
-    {
-      text: "Discover Slide 3",
+      text: "Designs That Define Your Space.",
       image: "/img/carousel/Carousel3.jpg",
+    },
+    {
+      text: "Transforming Spaces, Inspiring Lives.",
+      image: "/img/carousel/Carousel4.jpg",
+    },
+    {
+      text: "Where Style Meets Comfort.",
+      image: "/img/carousel/Carousel5.jpg",
+    },
+    {
+      text: "Discover Timeless Furniture.",
+      image: "/img/carousel/Carousel6.jpg",
     },
   ];
 
-  // Handler to navigate to the previous slide
   const handlePrev = () => {
-    swiperRef.current?.slidePrev();
-    console.log(swiperRef.current?.activeIndex); // Debug activeIndex
+    if (swiperRef.current) swiperRef.current.slidePrev();
   };
 
-  // Handler to navigate to the next slide
   const handleNext = () => {
-    swiperRef.current?.slideNext();
-    console.log(swiperRef.current?.activeIndex); // Debug activeIndex
+    if (swiperRef.current) swiperRef.current.slideNext();
   };
 
   console.log(swiperRef?.current?.activeIndex);
 
-
   return (
-    <section className="h-[80vh] w-full">
+    <section className="h-[80vh] w-full bg-black">
       <Swiper
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
-          console.log("Swiper initialized with active index:", swiper.activeIndex);
+          console.log(
+            "Swiper initialized with active index:",
+            swiper.activeIndex
+          );
         }}
         onSlideChange={(swiper) => {
+          setCurrentIndex(swiper.activeIndex);
           console.log("Slide changed. Current index:", swiper.activeIndex);
         }}
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
-        modules={[Navigation]}
-        loop={false} // Disable loop
-        slidesPerView={1} // Show one slide at a time
+        modules={[Navigation, Autoplay]}
+        loop={false}
+        slidesPerView={1}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
         className="cont-block"
       >
         {slides.map((slide, index) => (
@@ -114,15 +126,25 @@ const IndexPage = () => {
                 className="z-0"
               />
               <div className="absolute inset-0 flex flex-col gap-16 justify-center items-center bg-black bg-opacity-50 z-10">
-                <span className="mt-4 uppercase text-3xl sm:text-5xl font-head w-2/3 text-white text-center">
+                <motion.span
+                  className="mt-4 uppercase text-3xl sm:text-5xl lg:text-6xl font-head w-2/3 text-white text-center"
+                  variants={slideTextVariants}
+                  initial="initial"
+                  animate={currentIndex === index ? "animate" : "initial"}
+                >
                   {slide.text}
-                </span>
-                <Button text="Learn More" link="/about" make="light" />
+                </motion.span>
+                <motion.div
+                  variants={buttonVariants}
+                  initial="initial"
+                  animate={currentIndex === index ? "animate" : "initial"}
+                >
+                  <Button text="Visit About&nbsp;Section" link="/about" make="light" />
+                </motion.div>
               </div>
             </div>
           </SwiperSlide>
         ))}
-        {/* Custom Navigation Buttons */}
         <NavigationButton direction="prev" onClick={handlePrev} />
         <NavigationButton direction="next" onClick={handleNext} />
       </Swiper>

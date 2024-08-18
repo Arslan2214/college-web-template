@@ -1,11 +1,15 @@
 import React from "react";
+import dynamic from "next/dynamic";
+
 import Herosection from "./(section)/Herosection";
-import Who_We_Are from "./(section)/Who_We_Are";
-import Our_Specialization from "./(section)/Our_Specialization";
-import BrandList from "./(section)/BrandList";
-import Our_Team from "./(section)/Our_Team";
-import Main_Banner from "./(components)/Main_Banner";
-import Blog from "./(section)/Blog";
+const Who_We_Are = dynamic(() => import("./(section)/Who_We_Are"));
+const Our_Specialization = dynamic(
+  () => import("./(section)/Our_Specialization")
+);
+const BrandList = dynamic(() => import("./(section)/BrandList"));
+const Our_Team = dynamic(() => import("./(section)/Our_Team"));
+const Main_Banner = dynamic(() => import("./(components)/Main_Banner"));
+const Blog = dynamic(() => import("./(section)/Blog"));
 
 export default function Home() {
   return (

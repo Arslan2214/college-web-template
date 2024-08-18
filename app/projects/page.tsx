@@ -1,7 +1,8 @@
+import dynamic from "next/dynamic";
 import Page_Header from "@/app/(components)/Page_Header";
-import Image from "next/image";
-import Button from "../(components)/Button";
 import Project_Card from "../(components)/Project_Card";
+
+const Button = dynamic(() => import("../(components)/Button"));
 
 const page = () => {
   return (

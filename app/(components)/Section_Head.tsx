@@ -1,5 +1,3 @@
-import React from "react";
-
 type Props = {
   head: string;
   sub_head: string;
@@ -9,11 +7,12 @@ type Props = {
 
 const Section_Head = (props: Props) => {
   const bg = props.make == "dark" ? "text-slate-100" : "text-black";
+
   return (
     <>
       <div
         className={`flex flex-col justify-center ${
-          props.align == "center" ? "items-center text-center" : "items-start"
+          props.align === "center" ? "items-center text-center" : "items-start"
         }`}
       >
         <span className="uppercase text-lg font-semibold text-yellow">

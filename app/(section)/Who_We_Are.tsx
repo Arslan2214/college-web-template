@@ -27,7 +27,7 @@ const Who_We_Are = () => {
           </div>
         </div>
         <div>
-        <Vert_Image src="/img/discussion.jpg"  />
+        <Vert_Image src="/img/discussion.jpg" alt="discussion-image"  />
         </div>
       </section>
     </>

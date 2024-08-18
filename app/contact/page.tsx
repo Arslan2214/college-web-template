@@ -1,12 +1,14 @@
-import Page_Header from "@/app/(components)/Page_Header";
+import React, { Suspense } from "react";
+import dynamic from "next/dynamic";
 import Section_Head from "../(components)/Section_Head";
-import MapEmbed from "../(components)/Map";
-import Text from "../(components)/Text";
 import Skeleton from "../(components)/Map_Skeleton";
 import { TbDeviceMobileMessage } from "react-icons/tb";
 import { FaMailBulk } from "react-icons/fa";
 import { FaMapMarkedAlt } from "react-icons/fa";
-import React, { Suspense } from "react";
+
+const Text = dynamic(() => import("../(components)/Text"));
+const MapEmbed = dynamic(() => import("../(components)/Map"));
+const Page_Header = dynamic(() => import("@/app/(components)/Page_Header"));
 
 const Contact_Page = () => {
   return (

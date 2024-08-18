@@ -1,9 +1,11 @@
-import Page_Header from "@/app/(components)/Page_Header";
-import Main_Banner from "@/app/(components)/Main_Banner";
-import Our_Team from "../(section)/Our_Team";
+import dynamic from "next/dynamic";
 import Section_Head from "../(components)/Section_Head";
-import Text from "../(components)/Text";
-import Specialize_Card from "../(components)/Specialize_Card";
+
+const Page_Header = dynamic(() => import("@/app/(components)/Page_Header"));
+const Our_Team = dynamic(() => import("../(section)/Our_Team"));
+const Main_Banner = dynamic(() => import("@/app/(components)/Main_Banner"));
+const Text = dynamic(() => import("../(components)/Text"));
+const Specialize_Card = dynamic(() => import("../(components)/Specialize_Card"));
 
 const page = () => {
   return (
